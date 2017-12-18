@@ -1,0 +1,18 @@
+#uselib "user32.dll"
+#func  MoveWindow "MoveWindow" int, int, int, int, int, int
+#func  GetWindowRect "GetWindowRect" int, int
+#cfunc FindWindow "FindWindowA" int, str
+
+//exec "notepad" // メモ帳を起動する
+notepadWnd = FindWindow (0, "無題 - メモ帳")
+if (notepadWnd == 0) {
+	end
+}
+
+dim rect, 4
+GetWindowRect notepadWnd, varptr(rect)
+rect(0) = rect(0) + 10 // 一番左にすると-10になってしまうので
+mes "座標：" + rect(0) + "," + rect(1)
+sizex = rect(2) - rect(0)
+sizey = rect(3) - rect(1)
+mes "サイズ：" + sizex + "," + sizey

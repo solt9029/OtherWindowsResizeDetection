@@ -1,14 +1,13 @@
 #uselib "user32.dll"
-	#cfunc GetDesktopWindow "GetDesktopWindow"
-	#cfunc GetTopWindow "GetTopWindow" int
-	#cfunc GetWindow "GetWindow" int, int
-	#define GW_HWNDNEXT 2
-	#cfunc IsWindowVisible "IsWindowVisible" int
-	#func GetWindowText "GetWindowTextA" int, int, int
 
-#define NULL	0
-
-#define MAX_DETECT	256	//検出する最大個数
+#cfunc GetDesktopWindow "GetDesktopWindow"
+#cfunc GetTopWindow "GetTopWindow" int
+#cfunc GetWindow "GetWindow" int, int
+#define GW_HWNDNEXT 2
+#cfunc IsWindowVisible "IsWindowVisible" int
+#func GetWindowText "GetWindowTextA" int, int, int
+#define NULL 0
+#define MAX_DETECT 256 //検出する最大個数
 dim hwndList, MAX_DETECT	//検出したウィンドウハンドルのリスト
 sdim wTitleList, 256, MAX_DETECT	//検出したウィンドウのタイトルのリスト
 num_detected = 0	//検出カウンタ
